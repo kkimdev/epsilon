@@ -60,23 +60,7 @@ info:
 # that could be generated during the build and that needs to be cleaned up
 # afterwards.
 
-# Library Makefiles
-ifeq ($(USE_LIBA),0)
-include liba/Makefile.bridge
-else
-SFLAGS += -ffreestanding -nostdinc -nostdlib
-include liba/Makefile
-include libaxx/Makefile
-endif
-include ion/Makefile
-include kandinsky/Makefile
-include poincare/Makefile
 include python/Makefile
-include escher/Makefile
-# Executable Makefiles
-include apps/Makefile
-include build/struct_layout/Makefile
-include quiz/Makefile # Quiz needs to be included at the end
 
 products += $(objs)
 
