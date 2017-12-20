@@ -2,31 +2,40 @@
 #define PYTHON_PORT_H
 
 #include <stddef.h>
+#include <cstdlib>
+#include <cstdio>
+#include <emscripten.h>
 
-namespace MicroPython {
+namespace MicroPython
+{
 
-class ScriptProvider {
+class ScriptProvider
+{
 public:
-  virtual const char * contentOfScript(const char * name) = 0;
+  virtual const char *contentOfScript(const char *name) = 0;
 };
 
-class ExecutionEnvironment {
+class ExecutionEnvironment
+{
 public:
   ExecutionEnvironment();
-  static ExecutionEnvironment * currentExecutionEnvironment();
-  void runCode(const char * );
-  virtual void displaySandbox() {
+  static ExecutionEnvironment *currentExecutionEnvironment();
+  void runCode(const char *);
+  virtual void displaySandbox()
+  {
   }
-  virtual void printText(const char * text, size_t length) {
+  virtual void printText(const char *text, size_t length)
+  {
+    printf(text);
   }
+
 protected:
   bool m_sandboxIsDisplayed;
 };
 
-void init(void * heapStart, void * heapEnd);
+void init(void *heapStart, void *heapEnd);
 void deinit();
-void registerScriptProvider(ScriptProvider * s);
-
+void registerScriptProvider(ScriptProvider *s);
 };
 
 // Will implement :
@@ -35,3 +44,4 @@ void registerScriptProvider(ScriptProvider * s);
 // mp_hal_stdout_tx_strn_cooked -> Tell the context Python printed text
 
 #endif
+

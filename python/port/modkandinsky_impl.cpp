@@ -2,7 +2,7 @@ extern "C" {
 #include "modkandinsky.h"
 }
 // #include <kandinsky.h>
-#include "port.h"
+// #include "port.h"
 
 /* KDIonContext::sharedContext needs to be set to the wanted Rect before
  * calling kandinsky_get_pixel, kandinsky_set_pixel and kandinsky_draw_string.

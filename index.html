@@ -1,0 +1,24 @@
+<input type="text" id="input" style="width:100%; height:50%"></input>
+<textarea id="output_area" style="width:100%; height:50%"></textarea>
+
+<script>
+  function output(text) {
+    document.getElementById("output_area").append(text + "\n\n");
+  }
+  var Module = {
+    'print': function (text) {
+      output("output: " + text);
+    },
+    'printErr': function (text) {
+      output("printErr: " + text);
+    },
+  };
+  let t = document.getElementById('input');
+  t.addEventListener('keypress', (event) =>{
+    if (event.key==="Enter") {
+      Module.ccall('execute_python', 'void', ['string'], [t.value]);
+      t.value = '';
+    }
+  })
+</script>
+<script src="app.js"></script>

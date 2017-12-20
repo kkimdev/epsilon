@@ -4,7 +4,7 @@ extern "C" {
 #include "mphalport.h"
 }
 
-// void shouldInterrupt() {
+void shouldInterrupt() {
 //   static int c = 0;
 //   c++;
 //   if (c%20000 != 0) {
@@ -15,5 +15,5 @@ extern "C" {
 //   if (scan.keyDown((Ion::Keyboard::Key)mp_interrupt_char)) {
 //     mp_keyboard_interrupt();
 //   }
-// }
+}
 
