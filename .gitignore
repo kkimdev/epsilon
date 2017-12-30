@@ -50,3 +50,5 @@ escher/image/inliner
 
 # Ignore generated qtsrdefs file
 python/port/genhdr/qstrdefs.generated.h
+
+numworks_simulator.zip
